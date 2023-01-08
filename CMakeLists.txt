@@ -31,7 +31,9 @@ ExternalProject_Add(
 
         INSTALL_COMMAND cmake -E echo "Skipping install step."
 
-        CMAKE_CACHE_ARGS
+        CMAKE_ARGS -DSLIC3R_BUILD_TESTS=OFF 
+                -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE} 
+                -DCMAKE_CROSS_COMPILE_PREFIX=${CMAKE_CROSS_COMPILE_PREFIX}
         BUILD_COMMAND ${CMAKE_COMMAND} --build <BINARY_DIR> --config Release
 )
 
